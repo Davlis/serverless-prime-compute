@@ -1,0 +1,24 @@
+service: lambda-compute
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: us-east-1
+plugins:
+  - serverless-offline
+functions:
+    publicCompute:
+      handler: handler.publicCompute
+      events:
+        - http:
+            path: public/compute
+            method: get
+            cors: true
+
+    privateCompute:
+      handler: handler.privateCompute
+      events:
+        - http:
+            path: private/compute
+            method: get
+            cors: true
+            authorizer: arn:aws:lambda:us-east-1:512258449054:function:lambda-authorizer-dev-authorize
