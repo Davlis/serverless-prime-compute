@@ -1,11 +1,19 @@
 const response = require('./utils/response');
 
-const NOT_VALID_NUMBER = () => {
-    return { message: 'Provide valid number', status: 400 };
+const NO_PARAMETER_PROVIDED = () => {
+    return { message: 'Number parameter is required.', status: 400 };
+};
+
+const NOT_VALID_ARGUMENT_TYPE = () => {
+    return { message: 'Provided argument is not a number.', status: 400 };
+};
+
+const NOT_POSITIVE = () => {
+    return { message: 'Number is required to be positive', status: 400 }; 
 };
 
 const RESTRICTED_NUMBER = () => {
-    return { message: 'Not registered users have restriction to 1.000.000 number', status: 403 };
+    return { message: 'Not registered users have restriction to 1.000.000 number.', status: 403 };
 };
 
 const PRIME_NUMBER = (number) => {
@@ -17,7 +25,9 @@ const COMPLEX_NUMBER = (number) => {
 };
 
 module.exports = {
-    NOT_VALID_NUMBER,
+    NO_PARAMETER_PROVIDED,
+    NOT_VALID_ARGUMENT_TYPE,
+    NOT_POSITIVE,
     RESTRICTED_NUMBER,
     PRIME_NUMBER,
     COMPLEX_NUMBER,

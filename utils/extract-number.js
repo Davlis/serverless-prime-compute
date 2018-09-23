@@ -5,7 +5,7 @@ const extractNumber = (event) => {
         return Number(queryStringParameters.number);
     }
 
-    return NaN;
+    return null;
 };
 
 module.exports = extractNumber;
